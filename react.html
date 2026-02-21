@@ -1,0 +1,27 @@
+import { useState } from "react";
+
+function App() {
+  const [secao, setSecao] = useState("dashboard");
+
+  return (
+    <div>
+      <h1>Sistema Escolar PRO</h1>
+
+      <nav>
+        <button onClick={() => setSecao("dashboard")}>Dashboard</button>
+        <button onClick={() => setSecao("alunos")}>Alunos</button>
+        <button onClick={() => setSecao("professores")}>Professores</button>
+        <button onClick={() => setSecao("turmas")}>Turmas</button>
+        <button onClick={() => setSecao("notas")}>Notas</button>
+        <button onClick={() => setSecao("frequencia")}>Frequência</button>
+      </nav>
+
+      {secao === "dashboard" && <Dashboard />}
+      {secao === "alunos" && <Alunos />}
+      {secao === "professores" && <Professores />}
+      {secao === "turmas" && <Turmas />}
+      {secao === "notas" && <Notas />}
+      {secao === "frequencia" && <Frequencia />}
+    </div>
+  );
+}#FF0200
