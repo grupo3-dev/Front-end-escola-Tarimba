@@ -1,0 +1,25 @@
+function Alunos() {
+  const [nome, setNome] = useState("");
+  const [classe, setClasse] = useState("");
+
+  const salvar = async () => {
+    await fetch("http://localhost:3000/alunos", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({ nome, classe })
+    });
+
+    alert("Aluno salvo!");
+  };
+
+  return (
+    <div>
+      <h2>Alunos</h2>
+      <input onChange={e => setNome(e.target.value)} placeholder="Nome"/>
+      <input onChange={e => setClasse(e.target.value)} placeholder="Classe"/>
+      <button onClick={salvar}>Salvar</button>
+    </div>
+  );
+}
