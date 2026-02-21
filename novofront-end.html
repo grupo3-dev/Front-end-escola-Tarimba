@@ -1,0 +1,141 @@
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Sistema Escolar</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      background: #f4f6f9;
+    }
+
+    header {
+      background: #2c3e50;
+      color: white;
+      padding: 15px;
+      text-align: center;
+    }
+
+    .container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+      padding: 20px;
+    }
+
+    .card {
+      background: white;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+    }
+
+    .card h3 {
+      margin-top: 0;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .section {
+      padding: 20px;
+    }
+
+    button {
+      padding: 10px;
+      border: none;
+      background: #3498db;
+      color: white;
+      border-radius: 6px;
+      cursor: pointer;
+    }
+
+    input {
+      padding: 8px;
+      margin: 5px 0;
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Sistema de Gestão Escolar</h1>
+</header>
+
+<div class="container">
+  <div class="card" onclick="showSection('dashboard')">
+    <h3>Dashboard</h3>
+    <p>Visão geral do sistema</p>
+  </div>
+
+  <div class="card" onclick="showSection('matricula')">
+    <h3>Matrículas</h3>
+    <p>Inscrição de alunos</p>
+  </div>
+
+  <div class="card" onclick="showSection('frequencia')">
+    <h3> Frequência</h3>
+    <p>Registrar presença</p>
+  </div>
+
+  <div class="card" onclick="showSection('notas')">
+    <h3>Notas</h3>
+    <p>Ver desempenho</p>
+  </div>
+
+  <div class="card" onclick="enviarNotificacao()">
+    <h3>Notificações</h3>
+    <p>Enviar alerta</p>
+  </div>
+</div>
+
+<!-- SEÇÕES -->
+
+<div id="dashboard" class="section hidden">
+  <h2>Dashboard</h2>
+  <p>Bem-vindo ao sistema escolar!</p>
+</div>
+
+<div id="matricula" class="section hidden">
+  <h2>Matrícula</h2>
+  <input type="text" placeholder="Nome do aluno">
+  <input type="text" placeholder="Classe">
+  <button onclick="alert('Matrícula enviada!')">Enviar</button>
+</div>
+
+<div id="frequencia" class="section hidden">
+  <h2>Frequência</h2>
+  <input type="text" placeholder="Nome do aluno">
+  <button onclick="alert('Presença registrada!')">Marcar Presença</button>
+</div>
+
+<div id="notas" class="section hidden">
+  <h2>Notas e Relatórios</h2>
+  <p>Aluno: João</p>
+  <p>Matemática: 15 valores</p>
+  <p>Português: 14 valores</p>
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(sec => {
+      sec.classList.add('hidden');
+    });
+    document.getElementById(id).classList.remove('hidden');
+  }
+
+  function enviarNotificacao() {
+    alert("Nova notificação enviada!");
+  }
+</script>
+
+</body>
+</html>
